@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { ResultComponent } from "./result/result.component";
+import { DirectAccessGuard } from "./route-guard/direct-access.guard";
 import { ScanComponent } from "./scan/scan.component";
 
 const routes: Routes = [
@@ -10,7 +11,8 @@ const routes: Routes = [
   },
   {
     path: "result",
-    component: ResultComponent
+    component: ResultComponent,
+    canActivate: [DirectAccessGuard]
   },
   {
     path: "",
