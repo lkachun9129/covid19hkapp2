@@ -1,0 +1,77 @@
+.page-container {
+  height: 100%;
+  width: 100%;
+  color: white;
+  font-family: Calibri;
+  font-size: 17px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+  background-color: #12b188;
+}
+
+.close-button {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+}
+
+.main-content {
+  padding-top: 100px;
+}
+.bottom-content {
+  position: absolute;
+  bottom: 0px;
+  padding-bottom: 50px;
+}
+
+.content-text {
+  font-size: 1.1em;
+}
+
+.location-text {
+  color: #ffdb30;
+  font-size: 1.7em;
+  font-weight: 500;
+}
+
+.check-symbol {
+  padding-top: 50px;
+  font-size: 100px;
+}
+
+.checkbox {
+  border-radius: 3px;
+  border: 2px solid white;
+  width: 30px;
+  height: 30px;
+}
+
+.checkbox-text {
+  font-size: 0.8em;
+  width: 200px;
+  line-height: 27px;
+}
+
+.change-button {
+  font-size: 0.8em;
+  line-height: 27px;
+}
+
+.leave-btn {
+  height: 50px;
+  width: 250px;
+  background-color: #ffdb30;
+  border-radius: 25px;
+  display: table;
+  text-shadow: none;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.8);
+}
+.leave-btn .leave-btn-content {
+  color: black;
+  display: table-cell;
+  font-size: 1.3em;
+  font-weight: 600;
+}
+
+.reminder-text {
+  font-weight: 300;
+}

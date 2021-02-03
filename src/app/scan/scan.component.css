@@ -1,0 +1,82 @@
+.page-container {
+  height: 100%;
+  width: 100%;
+  color: white;
+  font-family: Calibri;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+  font-size: 16px;
+}
+
+:host zxing-scanner::ng-deep video {
+  height: 100%;
+  object-fit: fill;
+}
+
+.scanner-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.mask {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.mask > img {
+  height: 100%;
+}
+
+.header {
+  position: fixed;
+  z-index: 2;
+  top: 0px;
+  width: 100%;
+  height: 55px;
+  font-size: 1.2em;
+  background-color: #12b188;
+}
+
+.instruction {
+  position: fixed;
+  z-index: 2;
+  top: calc(100% / 2 + 160px);
+  width: 100%;
+  height: 50px;
+  font-size: 1.1em;
+}
+
+.bottom-content {
+  position: absolute;
+  bottom: 0px;
+  padding-bottom: 50px;
+}
+
+.location-text {
+  color: #ffdb30;
+  font-size: 1.8em;
+  font-weight: 500;
+}
+
+.check-symbol {
+  padding-top: 50px;
+  font-size: 100px;
+}
+
+.leave-btn {
+  height: 50px;
+  width: 200px;
+  background-color: #ffdb30;
+  border-radius: 25px;
+  display: table;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.8);
+}
+.leave-btn .leave-btn-content {
+  color: black;
+  display: table-cell;
+  font-size: 1.6em;
+  font-weight: 600;
+}
