@@ -31,20 +31,31 @@
   font-size: 2em;
 }
   
-.hero {
+.hero-container {
   position: fixed;
   top: 210px;
+  width: 2000px;
 }
 
-.hero-major {
+.hero {
+  width: 70vw;
+  display: inline-block;
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.8);
   font-size: 1.1em;
 }
 
-.hero-major > img {
+.hero.minor {
+  transform: scale(0.9);
+}
+
+.hero > img {
   width: 70vw;
+}
+
+.hero-right > img {
+  width: 60vw;
 }
 
 .hero-desc {
@@ -52,6 +63,7 @@
   bottom: 70px;
   padding-left: 30px;
   padding-right: 30px;
+  width: 70vw;
 }
 
 .hero-desc-major {
@@ -81,6 +93,7 @@
 }
 
 .footer-icon {
+  background-color: white;
   color: #717171;
   font-weight: 600;
   padding-top: 20px;
