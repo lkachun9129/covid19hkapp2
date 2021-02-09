@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 import { AppService } from "../app-service";
 
 @Component({
@@ -12,7 +13,9 @@ export class ResultComponent implements OnInit {
 
   isAuto: boolean = true;
 
-  constructor(private readonly _appService: AppService) {
+  constructor(
+      private readonly _router: Router,
+      private readonly _appService: AppService) {
     this.locationName = this._appService.getLocationName();
   }
 
@@ -22,5 +25,9 @@ export class ResultComponent implements OnInit {
 
   toggleAuto() {
     this.isAuto = !this.isAuto;
+  }
+
+  exit() {
+    this._router.navigate(['/landing']);
   }
 }

@@ -42,4 +42,8 @@ export class ScanComponent implements OnInit, AfterViewInit {
   scan() {
     this.scanner.enable = true;
   }
+
+  back() {
+    this._router.navigate(['/landing']);
+  }
 }

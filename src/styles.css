@@ -1,5 +1,7 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 
+@import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
+
 body {
   position: absolute;
   padding: 0px;
@@ -7,4 +9,5 @@ body {
   height: 100%;
   width: 100%;
   user-select: none;
+  font-family: 'Rubik';
 }
