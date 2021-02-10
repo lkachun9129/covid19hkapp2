@@ -8,19 +8,19 @@ import { Component, Inject, VERSION } from "@angular/core";
 })
 export class AppComponent {
   constructor(@Inject(DOCUMENT) private document: any) {
-    let elem = this.document.documentElement;
+    // let elem = this.document.documentElement;
 
-    if (elem.requestFullscreen) {
-      elem.requestFullscreen();
-    } else if (elem.mozRequestFullScreen) {
-      /* Firefox */
-      elem.mozRequestFullScreen();
-    } else if (elem.webkitRequestFullscreen) {
-      /* Chrome, Safari and Opera */
-      elem.webkitRequestFullscreen();
-    } else if (elem.msRequestFullscreen) {
-      /* IE/Edge */
-      elem.msRequestFullscreen();
-    }
+    // if (elem.requestFullscreen) {
+    //   elem.requestFullscreen();
+    // } else if (elem.mozRequestFullScreen) {
+    //   /* Firefox */
+    //   elem.mozRequestFullScreen();
+    // } else if (elem.webkitRequestFullscreen) {
+    //   /* Chrome, Safari and Opera */
+    //   elem.webkitRequestFullscreen();
+    // } else if (elem.msRequestFullscreen) {
+    //   /* IE/Edge */
+    //   elem.msRequestFullscreen();
+    // }
   }
 }

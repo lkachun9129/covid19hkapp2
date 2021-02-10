@@ -10,3 +10,7 @@ body {
   user-select: none;
   font-family: 'Rubik';
 }
+
+body::-webkit-scrollbar {
+  display: none;
+}
