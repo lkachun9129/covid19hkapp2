@@ -37,22 +37,15 @@
   font-size: 100px;
 }
 
-.checkbox {
-  border-radius: 3px;
-  border: 2px solid white;
-  width: 30px;
-  height: 30px;
-}
-
-.checkbox-text {
-  font-size: 0.8em;
-  width: 200px;
-  line-height: 27px;
+:host mat-checkbox::ng-deep .mat-checkbox-label {
+  font-weight: 600;
+  font-size: 13px;
 }
 
 .change-button {
-  font-size: 0.8em;
-  line-height: 27px;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 24px;
 }
 
 .leave-btn {

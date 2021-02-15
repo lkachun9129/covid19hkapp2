@@ -1,6 +1,9 @@
 import { Component, OnInit } from "@angular/core";
+import { MatDialog } from "@angular/material/dialog";
 import { Router } from "@angular/router";
 import { AppService } from "../app-service";
+import { LeaveDialogComponent } from "../leave-dialog/leave-dialog.component";
+import { VisitHistory } from "../models";
 
 @Component({
   selector: "app-result",
@@ -13,14 +16,17 @@ export class ResultComponent implements OnInit {
 
   isAuto: boolean = true;
 
+  visitHistory: VisitHistory;
+
   constructor(
+      private readonly _dialog: MatDialog,
       private readonly _router: Router,
       private readonly _appService: AppService) {
-    this.locationName = this._appService.getLocationName();
+   
   }
 
   ngOnInit() {
-    this.currentDateTime = new Date();
+    this.visitHistory = this._appService.getLastVisitHistory();
   }
 
   toggleAuto() {
@@ -29,5 +35,15 @@ export class ResultComponent implements OnInit {
 
   exit() {
     this._router.navigate(['/landing']);
+  }
+
+  leave() {
+    let leaveDialog = this._dialog.open(LeaveDialogComponent, {
+      panelClass: 'leave-dialog'
+    });
+
+    leaveDialog.afterClosed().subscribe(() => {
+      this.exit();
+    });
   }
 }

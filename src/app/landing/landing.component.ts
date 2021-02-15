@@ -1,5 +1,9 @@
-import { AfterViewInit, Component, OnInit } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from "@angular/router";
+import { AppService } from "../app-service";
+import { VisitHistory } from "../models";
+import { LeaveDialogComponent } from "../leave-dialog/leave-dialog.component";
 
 @Component({
   selector: "app-landing",
@@ -9,15 +13,47 @@ import { Router } from "@angular/router";
 export class LandingComponent implements OnInit {
   currentDateTime: Date;
 
+  isVisitActive: boolean = false;
+
+  timeDifference: number;
+  visitHistory: VisitHistory;
+  private _interval;
+
   constructor(
-    private readonly _router: Router
+    private readonly _dialog: MatDialog,
+    private readonly _router: Router,
+    private readonly _appService: AppService
   ) {}
 
   ngOnInit() {
     this.currentDateTime = new Date();
+
+    this.visitHistory = this._appService.getLastVisitHistory();
+    if (this.visitHistory) {
+      this.isVisitActive = this.visitHistory.active;
+
+      this.timeDifference = Math.floor((new Date().getTime() - this.visitHistory.inTime) / 1000);
+      this._interval = setInterval(() => {
+        this.timeDifference++;
+
+        if (!this.visitHistory?.active) {
+          clearInterval(this._interval);
+        }
+      }, 1000);
+    }
   }
 
   enter() {
     this._router.navigate(['/scan']);
+  }
+
+  leave() {
+    let leaveDialog = this._dialog.open(LeaveDialogComponent, {
+      panelClass: 'leave-dialog'
+    });
+
+    leaveDialog.afterClosed().subscribe(() => {
+      this.visitHistory = this._appService.getLastVisitHistory();
+    });
   }
 }

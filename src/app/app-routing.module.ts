@@ -22,12 +22,12 @@ const routes: Routes = [
   },
   {
     path: "",
-    redirectTo: "landing",
+    redirectTo: "result",
     pathMatch: "full"
   },
   {
     path: "**",
-    redirectTo: "landing"
+    redirectTo: "result"
   }
 ];
 
