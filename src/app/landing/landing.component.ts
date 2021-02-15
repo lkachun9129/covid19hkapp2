@@ -28,19 +28,21 @@ export class LandingComponent implements OnInit {
   ngOnInit() {
     this.currentDateTime = new Date();
 
-    this.visitHistory = this._appService.getLastVisitHistory();
-    if (this.visitHistory) {
-      this.isVisitActive = this.visitHistory.active;
+    this._appService.getLastVisitHistory().subscribe((history) => {
+      this.visitHistory = history;
+      if (this.visitHistory) {
+        this.isVisitActive = this.visitHistory.active;
 
-      this.timeDifference = Math.floor((new Date().getTime() - this.visitHistory.inTime) / 1000);
-      this._interval = setInterval(() => {
-        this.timeDifference++;
+        this.timeDifference = Math.floor((new Date().getTime() - this.visitHistory.inTime) / 1000);
+        this._interval = setInterval(() => {
+          this.timeDifference++;
 
-        if (!this.visitHistory?.active) {
-          clearInterval(this._interval);
-        }
-      }, 1000);
-    }
+          if (!this.visitHistory?.active) {
+            clearInterval(this._interval);
+          }
+        }, 1000);
+      }
+    });
   }
 
   enter() {
@@ -53,7 +55,9 @@ export class LandingComponent implements OnInit {
     });
 
     leaveDialog.afterClosed().subscribe(() => {
-      this.visitHistory = this._appService.getLastVisitHistory();
+      this._appService.getLastVisitHistory().subscribe((history) => {
+        this.visitHistory = history;
+      });
     });
   }
 }

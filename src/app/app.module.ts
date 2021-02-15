@@ -7,7 +7,6 @@ import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { ZXingScannerModule } from "@zxing/ngx-scanner";
-import { StorageServiceModule } from "ngx-webstorage-service";
 import { environment } from "../environments/environment";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppService } from "./app-service";
@@ -30,7 +29,6 @@ import { CounterPipe } from "./shared/counter.pipe";
         MatCheckboxModule,
         MatDialogModule,
 
-        StorageServiceModule,
         ZXingScannerModule,
 
         AppRoutingModule,

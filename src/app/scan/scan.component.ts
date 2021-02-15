@@ -33,9 +33,9 @@ export class ScanComponent implements OnInit, AfterViewInit {
     this.scanner.enable = false;
 
     let qrCodeContent = JSON.parse(atob(result.replace("HKEN:0", "").slice(8)));
-    this._appService.enterVenue(qrCodeContent.nameEn);
-
-    this._router.navigate(["/result"]);
+    this._appService.enterVenue(qrCodeContent.nameEn).subscribe(() => {
+      this._router.navigate(["/result"]);
+    });    
   }
 
   back() {

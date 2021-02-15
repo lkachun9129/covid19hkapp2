@@ -14,8 +14,10 @@ export class LeaveDialogComponent {
 
     constructor(
             private readonly _dialog: MatDialog,
-            private readonly _appService: AppService) { 
-        this.visitHistory = this._appService.getLastVisitHistory();
+            private readonly _appService: AppService) {
+        this._appService.getLastVisitHistory().subscribe((history) => {
+            this.visitHistory = history;
+        });
     }
 
     exit() {

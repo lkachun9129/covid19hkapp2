@@ -1,5 +1,6 @@
-import { Inject, Injectable } from "@angular/core";
-import { LOCAL_STORAGE, WebStorageService } from "ngx-webstorage-service";
+import { Injectable } from "@angular/core";
+import { StorageMap } from "@ngx-pwa/local-storage";
+import { Observable } from "rxjs";
 import { AppRecord, VisitHistory } from "./models";
 
 const RECORD_KEY = 'leavehomesafe.record';
@@ -11,11 +12,11 @@ export class AppService {
   private _locationName: string;
 
   constructor(
-    @Inject(LOCAL_STORAGE) private readonly _localStorage: WebStorageService) {
+    private readonly _storage: StorageMap) {
 
   }
 
-  enterVenue(name: string) {
+  enterVenue(name: string): Observable<any> {
     let history: VisitHistory = {
       location: name,
       inTime: new Date().getTime(),
@@ -24,33 +25,43 @@ export class AppService {
       isAuto: false
     };
 
-    let appRecord = this._localStorage.get(RECORD_KEY) as AppRecord;
-    if (!appRecord) {
-      appRecord = {
-        histories: []
-      }
-    }
+    let observable = new Observable<any>((subscriber) => {
+      this._storage.get(RECORD_KEY).subscribe((appRecord: AppRecord) => {
+        if (!appRecord) {
+          appRecord = {
+            histories: []
+          }
+        }
+    
+        appRecord.histories.unshift(history);
+        this._storage.set(RECORD_KEY, appRecord).subscribe(() => {
+          subscriber.next();
+        });
+      });
+    });
 
-    appRecord.histories.unshift(history);
-    this._localStorage.set(RECORD_KEY, appRecord);
+    return observable;
   }
 
-  getLastVisitHistory(): VisitHistory {
-    let appRecord = this._localStorage.get(RECORD_KEY) as AppRecord;
-
-    if (!appRecord) {
-      return null;
-    }
-
-    return appRecord.histories[0];
+  getLastVisitHistory(): Observable<VisitHistory> {
+    let observable = new Observable<VisitHistory>((subscriber) => {
+      this._storage.get(RECORD_KEY).subscribe((appRecord: AppRecord) => {
+        if (!appRecord) {
+          subscriber.next(null);
+        } else {
+          subscriber.next(appRecord.histories[0]);
+        }
+      });
+    })
+    return observable;
   }
 
   updateVisitHistory(visitHistory: VisitHistory) {
-    let appRecord = this._localStorage.get(RECORD_KEY) as AppRecord;
-
-    if (appRecord) {
-      appRecord.histories[0] = visitHistory;
-      this._localStorage.set(RECORD_KEY, appRecord);
-    }
+    this._storage.get(RECORD_KEY).subscribe((appRecord: AppRecord) => {
+      if (appRecord) {
+        appRecord.histories[0] = visitHistory;
+        this._storage.set(RECORD_KEY, appRecord).subscribe();
+      }
+    });
   }
 }

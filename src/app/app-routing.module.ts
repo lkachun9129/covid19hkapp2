@@ -12,22 +12,20 @@ const routes: Routes = [
   },
   {
     path: "scan",
-    component: ScanComponent,
-    canActivate: [DirectAccessGuard]
+    component: ScanComponent
   },
   {
     path: "result",
-    component: ResultComponent,
-    canActivate: [DirectAccessGuard]
+    component: ResultComponent
   },
   {
     path: "",
-    redirectTo: "result",
+    redirectTo: "landing",
     pathMatch: "full"
   },
   {
     path: "**",
-    redirectTo: "result"
+    redirectTo: "landing"
   }
 ];
 

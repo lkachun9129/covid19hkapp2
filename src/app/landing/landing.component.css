@@ -109,7 +109,7 @@
 }
 
 .leave-bubble-container {
-  position: absolute;
+  position: fixed;
   bottom: 150px;
   width: 100%;
 }

@@ -6,9 +6,9 @@
     </svg>
   </div>
   <div class="location-desc mx-3">You have entered the venue</div>
-  <div class="location-name mx-3">{{ visitHistory.location }}</div>
-  <div class="enter-time mx-3">{{ visitHistory.inTime | date: 'yyyy-MM-dd HH:mm' }}</div>
-  <div class="question mx-3 flex-grow-1 d-flex align-items-center"><div class="">Are you leaving now?</div></div>
+  <div class="location-name mx-3">{{ visitHistory?.location }}</div>
+  <div class="enter-time mx-3">{{ visitHistory?.inTime | date: 'yyyy-MM-dd HH:mm' }}</div>
+  <div class="question mx-3 flex-grow-1 d-flex align-items-center justify-content-center"><div class="">Are you leaving now?</div></div>
   <div class="now-button text-center" (click)="leaveNow()"><div class="button-content align-middle">Yes, I'm leaving now</div></div>
   <div class="past-button text-center"><div class="button-content align-middle">I've already left</div></div>
 </div>

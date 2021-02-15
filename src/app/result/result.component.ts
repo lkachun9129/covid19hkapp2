@@ -26,7 +26,9 @@ export class ResultComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.visitHistory = this._appService.getLastVisitHistory();
+    this._appService.getLastVisitHistory().subscribe((history) => {
+      this.visitHistory = history;
+    });
   }
 
   toggleAuto() {
@@ -34,6 +36,8 @@ export class ResultComponent implements OnInit {
   }
 
   exit() {
+    this.visitHistory.isAuto = this.isAuto;
+    this._appService.updateVisitHistory(this.visitHistory);
     this._router.navigate(['/landing']);
   }
 
@@ -43,7 +47,7 @@ export class ResultComponent implements OnInit {
     });
 
     leaveDialog.afterClosed().subscribe(() => {
-      this.exit();
+      this._router.navigate(['/landing']);
     });
   }
 }
