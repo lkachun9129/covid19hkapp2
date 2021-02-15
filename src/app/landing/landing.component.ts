@@ -4,6 +4,7 @@ import { Router } from "@angular/router";
 import { AppService } from "../app-service";
 import { VisitHistory } from "../models";
 import { LeaveDialogComponent } from "../leave-dialog/leave-dialog.component";
+import { SwitchVenueDialogComponent } from "../switch-venue-dialog/switch-venue-dialog.component";
 
 @Component({
   selector: "app-landing",
@@ -46,7 +47,13 @@ export class LandingComponent implements OnInit {
   }
 
   enter() {
-    this._router.navigate(['/scan']);
+    if (this.visitHistory?.active) {
+      this._dialog.open(SwitchVenueDialogComponent, {
+        panelClass: 'switch-venue-dialog'
+      });
+    } else {
+      this._router.navigate(['/scan']);
+    }
   }
 
   leave() {

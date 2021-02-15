@@ -16,6 +16,7 @@ import { LeaveDialogComponent } from "./leave-dialog/leave-dialog.component";
 import { ResultComponent } from "./result/result.component";
 import { ScanComponent } from "./scan/scan.component";
 import { CounterPipe } from "./shared/counter.pipe";
+import { SwitchVenueDialogComponent } from './switch-venue-dialog/switch-venue-dialog.component';
 
 
 @NgModule({
@@ -39,8 +40,9 @@ import { CounterPipe } from "./shared/counter.pipe";
         AppComponent,
         LandingComponent,
         LeaveDialogComponent,
-        ScanComponent,
         ResultComponent,
+        ScanComponent,
+        SwitchVenueDialogComponent,
 
         CounterPipe
     ],

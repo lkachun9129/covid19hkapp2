@@ -1,0 +1,54 @@
+.main-content {
+    margin: 0 -10px;
+    padding: 0 10px;
+    height: 370px;
+}
+
+.close-button {
+    text-align: right;
+}
+
+.leave-dialog-content {
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.question {
+    font-size: 1.6em;
+    font-weight: 700;
+    line-height: 30px;
+}
+
+.yes-button {
+    display: table;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 15px;
+    height: 60px;
+    width: calc(100% - 20px);
+    background-color: #ffdb30;
+    border-radius: 30px;
+}
+
+.no-button {
+    display: table;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    height: 60px;
+    width: calc(100% - 20px);
+    color: white;
+    background-color: #12b188;
+    border-radius: 30px;
+    text-shadow: 0 1px 3px rgb(0 0 0 / 80%);
+}
+
+.button-content {
+    display: table-cell;
+    font-size: 1.3em;
+    font-weight: 600;
+}
+

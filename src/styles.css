@@ -21,3 +21,8 @@ body::-webkit-scrollbar {
   padding: 10px;
   border-radius: 10px;
 }
+
+.switch-venue-dialog .mat-dialog-container {
+  padding: 10px;
+  border-radius: 10px;
+}

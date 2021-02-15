@@ -1,0 +1,11 @@
+<div mat-dialog-content class="main-content d-flex flex-column text-center">
+  <div class="close-button" (click)="exit()">
+    <svg viewBox="0 0 100 100" height="30" width="30">
+      <path d="M20 20 L80 80" fill="none" stroke="black" stroke-width="8" />
+      <path d="M80 20 L20 80" fill="none" stroke="black" stroke-width="8" />
+    </svg>
+  </div>
+  <div class="question mx-3 flex-grow-1 d-flex align-items-center justify-content-center"><div>Do you want to enter another venue?</div></div>
+  <div class="yes-button text-center" (click)="yes()"><div class="button-content align-middle">Yes</div></div>
+  <div class="no-button text-center" (click)="no()"><div class="button-content align-middle">No</div></div>
+</div>
