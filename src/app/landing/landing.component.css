@@ -1,5 +1,5 @@
 .page-container {
-  padding-bottom: 140px;
+  padding-bottom: 59px;
   width: 100%;
   color: white;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
@@ -12,7 +12,7 @@
   position: absolute;
   top: 180px;
   width: 100vw;
-  height: calc(100% - 215px);
+  height: calc(100% - 115px);
   background-color: white;
   border-radius: 40px;
   border-bottom-left-radius: 0px;
@@ -116,6 +116,7 @@
 
 .leave-bubble-container {
   position: fixed;
+  z-index: 2;
   bottom: 150px;
   width: 100%;
 }

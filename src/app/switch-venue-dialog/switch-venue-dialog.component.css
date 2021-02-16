@@ -17,7 +17,7 @@
 }
 
 .question {
-    font-size: 1.6em;
+    font-size: 1.4em;
     font-weight: 700;
     line-height: 30px;
 }
@@ -27,7 +27,7 @@
     margin-left: 10px;
     margin-right: 10px;
     margin-bottom: 15px;
-    height: 60px;
+    height: 50px;
     width: calc(100% - 20px);
     background-color: #ffdb30;
     border-radius: 30px;
@@ -38,7 +38,7 @@
     margin-left: 10px;
     margin-right: 10px;
     margin-bottom: 10px;
-    height: 60px;
+    height: 50px;
     width: calc(100% - 20px);
     color: white;
     background-color: #12b188;
@@ -48,7 +48,7 @@
 
 .button-content {
     display: table-cell;
-    font-size: 1.3em;
+    font-size: 1.1em;
     font-weight: 600;
 }
 
