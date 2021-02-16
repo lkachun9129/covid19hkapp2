@@ -34,11 +34,6 @@
 .header-details {
   font-size: 2em;
 }
-  
-.hero-container {
-  width: 2000px;
-  padding-left: 1.6em !important;
-}
 
 .hero {
   position: relative;
@@ -48,10 +43,6 @@
   overflow: hidden;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.8);
   font-size: 1.1em;
-}
-
-.hero.minor {
-  transform: scale(0.9);
 }
 
 .hero > img {
@@ -72,10 +63,12 @@
 
 .hero-desc-major {
   font-size: 1.8em;
+  line-height: 1.2em;
 }
 
 .hero-desc-minor {
   font-size: 1.1em;
+  line-height: 1.1em;
 }
 
 .hero-action {

@@ -7,6 +7,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { ZXingScannerModule } from "@zxing/ngx-scanner";
+import { IvyCarouselModule } from "angular-responsive-carousel";
 import { environment } from "../environments/environment";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppService } from "./app-service";
@@ -15,6 +16,7 @@ import { LandingComponent } from "./landing/landing.component";
 import { LeaveDialogComponent } from "./leave-dialog/leave-dialog.component";
 import { ResultComponent } from "./result/result.component";
 import { ScanComponent } from "./scan/scan.component";
+import { CarouselCellsDirective } from "./shared/carousel-cells.directive";
 import { CounterPipe } from "./shared/counter.pipe";
 import { SwitchVenueDialogComponent } from './switch-venue-dialog/switch-venue-dialog.component';
 
@@ -30,6 +32,7 @@ import { SwitchVenueDialogComponent } from './switch-venue-dialog/switch-venue-d
         MatCheckboxModule,
         MatDialogModule,
 
+        IvyCarouselModule,
         ZXingScannerModule,
 
         AppRoutingModule,
@@ -43,6 +46,8 @@ import { SwitchVenueDialogComponent } from './switch-venue-dialog/switch-venue-d
         ResultComponent,
         ScanComponent,
         SwitchVenueDialogComponent,
+
+        CarouselCellsDirective,
 
         CounterPipe
     ],
