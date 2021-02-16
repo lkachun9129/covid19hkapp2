@@ -27,6 +27,10 @@ body::-webkit-scrollbar {
   border-radius: 10px;
 }
 
+.carousel {
+  z-index: 1 !important;
+}
+
 .carousel-container {
   overflow: visible !important;
 }
