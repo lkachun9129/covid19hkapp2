@@ -1,0 +1,29 @@
+
+.footer {
+    position: fixed;
+    bottom: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 80px;
+    width: 100%;
+    box-shadow: 0 -1px 6px rgb(0 0 0 / 10%);
+    text-shadow: none;
+    background-color: white;
+  }
+  
+  .footer-icon {
+    background-color: white;
+    color: #717171;
+    font-weight: 600;
+    padding-top: 15px;
+    font-size: 11px;
+  }
+  
+  .footer-icon > img {
+    margin-bottom: 5px;
+    width: 25px;
+  }
+  
+  .footer-icon.selected {
+    color: #17AF88;
+  }

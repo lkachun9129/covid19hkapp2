@@ -12,10 +12,12 @@ import { environment } from "../environments/environment";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppService } from "./app-service";
 import { AppComponent } from "./app.component";
+import { InboxComponent } from "./inbox/inbox.component";
 import { LandingComponent } from "./landing/landing.component";
 import { LeaveDialogComponent } from "./leave-dialog/leave-dialog.component";
 import { ResultComponent } from "./result/result.component";
 import { ScanComponent } from "./scan/scan.component";
+import { AppBarComponent } from "./shared/app-bar/app-bar.component";
 import { CarouselCellsDirective } from "./shared/carousel-cells.directive";
 import { CounterPipe } from "./shared/counter.pipe";
 import { SwitchVenueDialogComponent } from './switch-venue-dialog/switch-venue-dialog.component';
@@ -41,12 +43,15 @@ import { SwitchVenueDialogComponent } from './switch-venue-dialog/switch-venue-d
     ],
     declarations: [
         AppComponent,
+        InboxComponent,
         LandingComponent,
         LeaveDialogComponent,
         ResultComponent,
         ScanComponent,
         SwitchVenueDialogComponent,
 
+        AppBarComponent,
+        
         CarouselCellsDirective,
 
         CounterPipe

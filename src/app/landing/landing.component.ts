@@ -5,6 +5,7 @@ import { AppService } from "../app-service";
 import { VisitHistory } from "../models";
 import { LeaveDialogComponent } from "../leave-dialog/leave-dialog.component";
 import { SwitchVenueDialogComponent } from "../switch-venue-dialog/switch-venue-dialog.component";
+import { AppPage } from "../shared/app-bar/app-bar.component";
 
 @Component({
   selector: "app-landing",
@@ -12,6 +13,9 @@ import { SwitchVenueDialogComponent } from "../switch-venue-dialog/switch-venue-
   styleUrls: ["./landing.component.css"]
 })
 export class LandingComponent implements OnInit {
+
+  readonly AppPage = AppPage;
+
   currentDateTime: Date;
 
   isVisitActive: boolean = false;
@@ -44,6 +48,10 @@ export class LandingComponent implements OnInit {
         }, 1000);
       }
     });
+  }
+
+  inbox() {
+    this._router.navigate(['/inbox']);
   }
 
   enter() {
