@@ -12,6 +12,7 @@ import { environment } from "../environments/environment";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppService } from "./app-service";
 import { AppComponent } from "./app.component";
+import { AutoLeaveDialogComponent } from "./auto-leave-dialog/auto-leave-dialog.component";
 import { InboxComponent } from "./inbox/inbox.component";
 import { LandingComponent } from "./landing/landing.component";
 import { LeaveDialogComponent } from "./leave-dialog/leave-dialog.component";
@@ -45,9 +46,11 @@ import { SwitchVenueDialogComponent } from './switch-venue-dialog/switch-venue-d
         AppComponent,
         InboxComponent,
         LandingComponent,
-        LeaveDialogComponent,
         ResultComponent,
         ScanComponent,
+
+        AutoLeaveDialogComponent,
+        LeaveDialogComponent,
         SwitchVenueDialogComponent,
 
         AppBarComponent,

@@ -38,6 +38,11 @@
     line-height: 30px;
 }
 
+.auto-leave {
+    font-size: 0.88em;
+    margin-bottom: 5px;
+}
+
 .now-button {
     display: table;
     margin-left: 10px;

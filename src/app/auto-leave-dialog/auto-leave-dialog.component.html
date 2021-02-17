@@ -1,0 +1,18 @@
+<div mat-dialog-content class="main-content d-flex flex-column text-center">
+  <div class="close-button" (click)="exit()">
+    <svg viewBox="0 0 100 100" height="30" width="30">
+      <path d="M20 20 L80 80" fill="none" stroke="black" stroke-width="8" />
+      <path d="M80 20 L20 80" fill="none" stroke="black" stroke-width="8" />
+    </svg>
+  </div>
+  <div class="title mx-4">Set Auto-leave Time</div>
+  <div class="range-selector mx-3">
+    <div class="range-option d-flex" *ngFor="let option of options" (click)="select(option.value)">
+      <div class="flex-grow-1">{{ option.label }}</div>
+      <img *ngIf="option.selected" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJAAAACQCAYAAADnRuK4AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAQsSURBVHhe7dy9b9RIGIBxe52gJYiPJApfooTqhHRIR4MoTifdNURCVCDRwx9AQ4fooKChpLkWqoPimhSIIh0IioPqrrkmYhOIIVEQgniXeTfDlwJhbc9rz9jPr/HryabI6JE36yiOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABwI7ZHNMD0vWsHzeHkxtnQ/MvTlxfsrIKAGkDC6a+szUbr2ZXO1C6JaKj/anUpGkRXO5M7/9IKiYACJ/FkvfTPZN/kH3Zpk+z58oNk/9R5jYg69ogADeNZTO9uFY8w8fxqXnfDvsU5RUCB+hTP3snjdmlL5nXnBu/e/2ZPnSGgAOWN56Ns4cUvdnSGgAJTNJ6h9+s/28kZAgpIqXg2bLNHZwgoEA7iiaKxscd2coaAAuAkHsN8WntkR2cIyHOu4sl66Vw80Z2zp85wI9FjzuJ5+fr/ZHr3CY0biQTkqRDiEQTkoVDiEQTkmZDiEQTkkdDiEQTkiRDjEQTkgVDjEQRUs5DjEQRUo9DjEQRUkybEIwioBk2JRxBQxZoUjyCgCjUtHkFAFWliPIKAKtDUeAQBKWtyPIKAFDU9HkFAStoQjyAgBW2JRxCQY22KRxCQQ22LRxCQI22MRxCQA22NRxBQSW2ORxBQCW2PRxBQQcSzgYAKIJ7PCCgn4vlaJQHJpvfT1TP95ZVjUX9wNIoGi/H27pPk0MxT82X1R9G6QjybqQc03PSldC6ZmfzJLn3FRHWzM7Xruu+bSTzfphrQ8Mqz9va/zo7udrv0TVlv+e9k39QFXzeVeL5P7flAw03vLd/5UTzCxHPKvPaWfI9d8gbxbE3zAVMnTRhfPnZ/Sz5GRDw/phZQf2Vtjx1H5lNExDMavYDS1SN2zMWHiIhndGoBJTN7ntkxtzojIp581AKKJ7pv7FhIHRERT36av0TPy5NB7VxIlRERTzFV3Af613yUn7BLhZiIVO8TEU9xmlegSDYyHk8u2tPCNK9ExFOOakAi3jZ+f7CeXbKnhWlERDzlVfbHVBPRuXgsuWGXCnP1dkY8blQSkPApIuJxp7KAhA8REY9blQYk6oyIeNyrPCBRR0TEo6OWgESVERGPntoCElVERDy6ag1IaEZEPPpqD0hoRDSciUedFwEJ1xFFcbyXePR5E5BwGVFZxDMarwISPkREPKPzLiBRZ0TEk4+XAYk6IiKe/LwNSFQZEfEU43VAooqIiKc47wMSmhERTzlBBCQ0IiKe8oIJSLiMiHjcCCog4SIi4nEnuIBEmYiIx60gAxJFIiIe94INSOSJiHh0qP9fmCaJwcRz24xns8X04cbqZlkvvUc8OoK+An1Jrkb9lbXZfi/93fxUh6NB9C7qxP8kB6bn44nuHPEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIB2iKIPlvdm6MwiQ5YAAAAASUVORK5CYII="/>
+    </div>
+  </div>
+  <div class="in-time text-center">Enter Venue at {{ visitHistory?.inTime | date: 'MM-dd HH:mm' }}</div>
+  <div class="out-time text-center">Auto-leave at {{ visitHistory?.outTime | date: 'MM-dd HH:mm' }}</div>
+  <div class="confirm-button text-center" (click)="confirm()"><div class="button-content align-middle">Confirm</div></div>
+</div>

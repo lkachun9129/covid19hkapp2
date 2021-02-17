@@ -4,6 +4,9 @@ import { Observable } from "rxjs";
 import { AppRecord, VisitHistory } from "./models";
 
 const RECORD_KEY = 'leavehomesafe.record';
+const AUTO_LEAVE_KEY = 'leavehomesafe.autoleave';
+
+const DEFAULT_AUTO_HOURS = 4;
 
 @Injectable({
   providedIn: "root"
@@ -11,9 +14,20 @@ const RECORD_KEY = 'leavehomesafe.record';
 export class AppService {
   private _locationName: string;
 
-  constructor(
-    private readonly _storage: StorageMap) {
+  constructor(private readonly _storage: StorageMap) { }
 
+  setAutoLeaveOption(value: number) {
+    this._storage.set(AUTO_LEAVE_KEY, value).subscribe();
+  }
+
+  getAutoLeaveOption(): Observable<number> {
+    let observable = new Observable<number>((subscriber) => {
+      this._storage.get(AUTO_LEAVE_KEY).subscribe((value: number) => {
+        subscriber.next(value? value : DEFAULT_AUTO_HOURS);
+      });
+    });
+
+    return observable;
   }
 
   enterVenue(name: string): Observable<any> {
@@ -22,7 +36,7 @@ export class AppService {
       inTime: new Date().getTime(),
       outTime: null,
       active: true,
-      isAuto: false
+      isAuto: true
     };
 
     let observable = new Observable<any>((subscriber) => {
@@ -56,12 +70,19 @@ export class AppService {
     return observable;
   }
 
-  updateVisitHistory(visitHistory: VisitHistory) {
-    this._storage.get(RECORD_KEY).subscribe((appRecord: AppRecord) => {
-      if (appRecord) {
-        appRecord.histories[0] = visitHistory;
-        this._storage.set(RECORD_KEY, appRecord).subscribe();
-      }
+  updateVisitHistory(visitHistory: VisitHistory): Observable<any> {
+    let observable = new Observable<any>((subscriber) => {
+      this._storage.get(RECORD_KEY).subscribe((appRecord: AppRecord) => {
+        if (appRecord) {
+          appRecord.histories[0] = visitHistory;
+          this._storage.set(RECORD_KEY, appRecord).subscribe((_) => {
+            subscriber.next();
+          });
+        } else {
+          subscriber.next();
+        }
+      });
     });
+    return observable;
   }
 }

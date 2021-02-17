@@ -33,8 +33,9 @@ export class SwitchVenueDialogComponent {
     yes() {
         this.visitHistory.active = false;
         this.visitHistory.outTime = new Date().getTime();
-        this._appService.updateVisitHistory(this.visitHistory);
-        this._dialogRef.close();
-        this._router.navigate(['/scan']);
+        this._appService.updateVisitHistory(this.visitHistory).subscribe((_) => {
+            this._dialogRef.close();
+            this._router.navigate(['/scan']);
+        });
     }
 }

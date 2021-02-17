@@ -36,16 +36,21 @@ export class LandingComponent implements OnInit {
     this._appService.getLastVisitHistory().subscribe((history) => {
       this.visitHistory = history;
       if (this.visitHistory) {
-        this.isVisitActive = this.visitHistory.active;
+        if (this.visitHistory.outTime === null || this.visitHistory.outTime > new Date().getTime()) {
+          this.isVisitActive = this.visitHistory.active;
 
-        this.timeDifference = Math.floor((new Date().getTime() - this.visitHistory.inTime) / 1000);
-        this._interval = setInterval(() => {
-          this.timeDifference++;
+          this.timeDifference = Math.floor((new Date().getTime() - this.visitHistory.inTime) / 1000);
+          this._interval = setInterval(() => {
+            this.timeDifference++;
 
-          if (!this.visitHistory?.active) {
-            clearInterval(this._interval);
-          }
-        }, 1000);
+            if (!this.visitHistory?.active) {
+              clearInterval(this._interval);
+            }
+          }, 1000);
+        } else if (this.visitHistory.outTime) {
+          this.visitHistory.active = false;
+          this._appService.updateVisitHistory(this.visitHistory).subscribe();
+        }
       }
     });
   }
@@ -66,7 +71,8 @@ export class LandingComponent implements OnInit {
 
   leave() {
     let leaveDialog = this._dialog.open(LeaveDialogComponent, {
-      panelClass: 'leave-dialog'
+      panelClass: 'leave-dialog',
+      data: { isAuto: this.visitHistory.isAuto }
     });
 
     leaveDialog.afterClosed().subscribe(() => {

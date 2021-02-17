@@ -17,6 +17,15 @@ body::-webkit-scrollbar {
   display: none;
 }
 
+.auto-leave-dialog.cdk-overlay-pane {
+  height: 55%;
+}
+
+.auto-leave-dialog .mat-dialog-container {
+  padding: 10px;
+  border-radius: 10px;
+}
+
 .leave-dialog .mat-dialog-container {
   padding: 10px;
   border-radius: 10px;
