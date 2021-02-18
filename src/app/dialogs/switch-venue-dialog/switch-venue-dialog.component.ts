@@ -1,8 +1,8 @@
 import { Component } from "@angular/core";
 import { MatDialogRef } from "@angular/material/dialog";
 import { Router } from "@angular/router";
-import { AppService } from "../app-service";
-import { VisitHistory } from "../models";
+import { AppService } from "../../app-service";
+import { VisitHistory } from "../../models";
 
 @Component({
     selector: 'switch-venue-dialog',

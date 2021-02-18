@@ -1,0 +1,22 @@
+<div class="page-container">
+	<div class="container-fluid main-content h-100 d-flex flex-column">
+		<div class="row justify-content-center d-flex align-content-center header">
+			<svg viewBox="0 0 100 100" width="30" class="ml-3" (click)="back()">
+				<path d="M60 15 L30 50 L60 85" fill="none" stroke="white" stroke-width="10" />
+			</svg>
+			<div class="text-center flex-grow-1 m-auto">Visit Records</div>
+			<svg viewBox="0 0 100 100" width="30" class="mr-3"></svg>
+		</div>
+		<div class="row records-container flex-grow-1 d-flex align-content-start">
+			<div class="record-item" *ngFor="let history of visitHistories">
+				<div class="location">{{history.location}}</div>
+				<div class="period">{{history.inTime | date: 'yyyy-MM-dd HH:mm'}} - {{history.outTime | date: 'yyyy-MM-dd HH:mm'}}</div>
+			</div>			
+		</div>
+	</div>
+	
+	<div class="footer">
+		<div class="text-center"><img class="lock" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJAAAACQCAMAAADQmBKKAAAAt1BMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABa5Z9DAAAAPXRSTlMANF9/l6/H38Ork3soBEPj/9uLPCyj8+sgHJ/7948Qh+93CDBvV5sYDM+3g7vTR1sUYySzOE/La1NLp9fn70WPCAAAAr1JREFUeAHt2AVC60AUheFTFwg52LRp6oq7w/639fxFIJWU3g5yvxX8kVF8eEqpTDaXLxRLpXKlupHdhF3OVt5lzPbOLqzZ2zdMUMvXYYPX8JmMzVYb69buNDlDt9fHWm11OYc7wBoNfc5lRlgXZ8yF5LAekzIXVDjAGvSLXFgBa9BgCjmI6/EN//CokTtunJzyrRGEnfmMM4XzC/zjXZ40GWcGEDUxjPGrE8Rc7TPO7UNSnjHXV3hjUGRMD4KufEblFpmmum3IKcydihMm8hbE3DDqFlMNGdGsQ8oRIzYww5gReQhp+wxVMItTZKgGIecMNSeYacCIXcioMHSMOfYZ2oGIvmGg1sYcV00GtiHijKEx5jphaBMScgxtYa5LhrKQMGbA9DGXF58iBFwzcI0FnDJQhYS7VL9Q7CeqQILLQC7l1rIMCQxdYgHHDJSkg7JpR6W1IA3SIA3SIA3SoItspVjiipTK+6OD9+W0fK6Yyb0j6axLAW4GS7r3KcI8YCmPPoWYDJbgGYpxD5Beg4JyS12WCTIHSKtHUSOkVaaofaTlUlQZaVFW6aMF8RsFaZAGaZAGaZAGaZAGaVCt8XBTr++eP5kPEVQbOvjnIGfsBx21EeHd2Q6qOog5qNgNunbwysGdvaDkWwzPWAzKIkHOXtC2gwQHxlpQB4merAXtItG5tSAPiXatBSFZ/aMFedaCJkh0Yy0og0QP1oJySNSwFnSIJE7NWhBvkWBIe0HPDt5o1ywGcYzXnCPaDGIPcU6VdoM4dhBxcE3bQXwO/2wn69J+EHmYy0wAb7ez/WUPihqkQRqkQRqkQRqkQRqkQS7SeqGoItK6o6gK0spRVBZpDSjJv0BqBQpqIb1Nn2K6F1jCJaX4Z1hKR6rnHku69CnAPGJpmwWumt/w8B6D3N0LV8Yt966glFJKfW0/AVTeMtWKyquzAAAAAElFTkSuQmCC"/></div>
+		<div class="statement text-center">The visit record will be kept in your mobile phones for 31 days and will then be erased automatically.</div>
+	</div>
+</div>

@@ -1,8 +1,8 @@
 import { Component, Inject, Optional } from "@angular/core";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { Router } from "@angular/router";
-import { AppService } from "../app-service";
-import { VisitHistory } from "../models";
+import { AppService } from "../../app-service";
+import { VisitHistory } from "../../models";
 
 @Component({
     selector: 'leave-dialog',

@@ -19,7 +19,9 @@ export class SettingsComponent implements OnInit {
     private readonly _appService: AppService
   ) {}
 
-  ngOnInit() {
-    
+  ngOnInit() { }
+
+  visitRecords() {
+    this._router.navigate(['/records']);
   }
 }

@@ -3,8 +3,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from "@angular/router";
 import { AppService } from "../app-service";
 import { VisitHistory } from "../models";
-import { LeaveDialogComponent } from "../leave-dialog/leave-dialog.component";
-import { SwitchVenueDialogComponent } from "../switch-venue-dialog/switch-venue-dialog.component";
+import { LeaveDialogComponent } from "../dialogs/leave-dialog/leave-dialog.component";
+import { SwitchVenueDialogComponent } from "../dialogs/switch-venue-dialog/switch-venue-dialog.component";
 import { AppPage } from "../shared/app-bar/app-bar.component";
 
 @Component({

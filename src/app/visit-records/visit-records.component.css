@@ -1,0 +1,70 @@
+.page-container {
+  height: 100%;
+  width: 100%;
+  color: white;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+  font-size: 14px;
+  background-color: #333;
+}
+
+.header {
+  height: 45px;
+  font-size: 1.1em;
+  background-color: #12b188;
+}
+
+.records-container {
+  color: black;
+  text-shadow: none;
+  background-color: white;
+  overflow: scroll;
+  margin-bottom: 90px;
+}
+
+.record-item {
+  width: 100%;
+  height: 60px;
+  margin: 0px 25px;
+  border-bottom: 1px solid #F0F0F0;
+  padding-top: 10px;
+}
+
+.records-container > .record-item:last-child {
+  border-bottom: none;
+}
+
+.location {
+  font-size: 0.98em;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.period {
+  font-size: 0.82em;
+  color: #888888;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  height: 90px;
+  width: 100%;
+  box-shadow: 0 -1px 6px rgb(0 0 0 / 10%);
+  text-shadow: none;
+  background-color: #f0f0f0;
+}
+
+.lock {
+  height: 15px;
+}
+
+.statement {
+  color: black;
+  font-size: 0.8em;
+  font-weight: 700;
+  margin-top: 2px;
+  padding: 0px 10px;
+}

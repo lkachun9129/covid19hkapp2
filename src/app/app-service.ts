@@ -70,6 +70,19 @@ export class AppService {
     return observable;
   }
 
+  getAllVisitHistory(): Observable<VisitHistory[]> {
+    let observable = new Observable<VisitHistory[]>((subscriber) => {
+      this._storage.get(RECORD_KEY).subscribe((appRecord: AppRecord) => {
+        if (!appRecord) {
+          subscriber.next([]);
+        } else {
+          subscriber.next(appRecord.histories);
+        }
+      });
+    })
+    return observable;
+  }
+
   updateVisitHistory(visitHistory: VisitHistory): Observable<any> {
     let observable = new Observable<any>((subscriber) => {
       this._storage.get(RECORD_KEY).subscribe((appRecord: AppRecord) => {

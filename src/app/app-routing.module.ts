@@ -5,6 +5,7 @@ import { LandingComponent } from "./landing/landing.component";
 import { ResultComponent } from "./result/result.component";
 import { ScanComponent } from "./scan/scan.component";
 import { SettingsComponent } from "./settings/settings.component";
+import { VisitRecordsComponent } from "./visit-records/visit-records.component";
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: "result",
     component: ResultComponent
+  },
+  {
+    path: 'records',
+    component: VisitRecordsComponent
   },
   {
     path: "",

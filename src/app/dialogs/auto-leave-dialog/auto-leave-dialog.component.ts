@@ -1,8 +1,8 @@
 import { Inject } from "@angular/core";
 import { Component, Optional } from "@angular/core";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
-import { AppService } from "../app-service";
-import { VisitHistory } from "../models";
+import { AppService } from "../../app-service";
+import { VisitHistory } from "../../models";
 
 @Component({
     selector: 'auto-leave-dialog',

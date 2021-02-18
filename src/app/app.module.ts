@@ -12,17 +12,18 @@ import { environment } from "../environments/environment";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppService } from "./app-service";
 import { AppComponent } from "./app.component";
-import { AutoLeaveDialogComponent } from "./auto-leave-dialog/auto-leave-dialog.component";
+import { AutoLeaveDialogComponent } from "./dialogs/auto-leave-dialog/auto-leave-dialog.component";
 import { InboxComponent } from "./inbox/inbox.component";
 import { LandingComponent } from "./landing/landing.component";
-import { LeaveDialogComponent } from "./leave-dialog/leave-dialog.component";
+import { LeaveDialogComponent } from "./dialogs/leave-dialog/leave-dialog.component";
 import { ResultComponent } from "./result/result.component";
 import { ScanComponent } from "./scan/scan.component";
 import { SettingsComponent } from "./settings/settings.component";
 import { AppBarComponent } from "./shared/app-bar/app-bar.component";
 import { CarouselCellsDirective } from "./shared/carousel-cells.directive";
 import { CounterPipe } from "./shared/counter.pipe";
-import { SwitchVenueDialogComponent } from './switch-venue-dialog/switch-venue-dialog.component';
+import { SwitchVenueDialogComponent } from './dialogs/switch-venue-dialog/switch-venue-dialog.component';
+import { VisitRecordsComponent } from "./visit-records/visit-records.component";
 
 
 @NgModule({
@@ -50,6 +51,7 @@ import { SwitchVenueDialogComponent } from './switch-venue-dialog/switch-venue-d
         LandingComponent,
         ResultComponent,
         ScanComponent,
+        VisitRecordsComponent,
 
         AutoLeaveDialogComponent,
         LeaveDialogComponent,

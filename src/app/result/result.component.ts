@@ -2,8 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import { Router } from "@angular/router";
 import { AppService } from "../app-service";
-import { AutoLeaveDialogComponent } from "../auto-leave-dialog/auto-leave-dialog.component";
-import { LeaveDialogComponent } from "../leave-dialog/leave-dialog.component";
+import { AutoLeaveDialogComponent } from "../dialogs/auto-leave-dialog/auto-leave-dialog.component";
+import { LeaveDialogComponent } from "../dialogs/leave-dialog/leave-dialog.component";
 import { VisitHistory } from "../models";
 
 @Component({
