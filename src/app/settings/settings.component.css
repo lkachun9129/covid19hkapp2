@@ -1,0 +1,66 @@
+.page-container {
+  height: 100%;
+  width: 100%;
+  color: white;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+  font-size: 14px;
+  background-color: #333;
+}
+
+.header {
+  height: 45px;
+  font-size: 1.1em;
+  background-color: #12b188;
+}
+
+.settings-container {
+  color: black;
+  text-shadow: none;
+  background-color: white;
+  overflow: scroll;
+  margin-bottom: 80px;
+}
+
+.daily-update {
+  width: 100%;
+  height: 90px;
+  margin: 0px 25px;
+  padding-top: 30px;
+  border-bottom: 1px solid #F0F0F0;
+}
+
+.title {
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+.daily-update .last-update {
+  color: #888888;
+}
+
+.daily-update > img {
+  height: 20px;
+  margin-top: 12px;
+}
+
+.setting-item {
+  width: 100%;
+  height: 60px;
+  margin: 0px 25px;
+  border-bottom: 1px solid #F0F0F0;
+}
+
+.setting-item > img {
+  height: 20px;
+}
+
+.about-item {
+  width: 100%;
+  height: 60px;
+  margin: 0px 25px;
+}
+
+.app-name {
+  color: #13B188;
+  text-decoration: underline;
+}

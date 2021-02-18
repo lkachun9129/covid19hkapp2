@@ -4,6 +4,7 @@ import { InboxComponent } from "./inbox/inbox.component";
 import { LandingComponent } from "./landing/landing.component";
 import { ResultComponent } from "./result/result.component";
 import { ScanComponent } from "./scan/scan.component";
+import { SettingsComponent } from "./settings/settings.component";
 
 const routes: Routes = [
   {
@@ -13,6 +14,10 @@ const routes: Routes = [
   {
     path: 'inbox',
     component: InboxComponent
+  },
+  {
+    path: 'settings',
+    component: SettingsComponent
   },
   {
     path: "scan",

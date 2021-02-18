@@ -40,6 +40,8 @@ export class AppBarComponent implements OnInit {
     }
   }
   settings() {
-    //this._router.navigate(['/settings']);
+    if (this.currentPage != AppPage.Settings) {
+      this._router.navigate(['/settings']);
+    }
   }
 }

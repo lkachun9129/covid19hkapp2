@@ -18,6 +18,7 @@ import { LandingComponent } from "./landing/landing.component";
 import { LeaveDialogComponent } from "./leave-dialog/leave-dialog.component";
 import { ResultComponent } from "./result/result.component";
 import { ScanComponent } from "./scan/scan.component";
+import { SettingsComponent } from "./settings/settings.component";
 import { AppBarComponent } from "./shared/app-bar/app-bar.component";
 import { CarouselCellsDirective } from "./shared/carousel-cells.directive";
 import { CounterPipe } from "./shared/counter.pipe";
@@ -45,6 +46,7 @@ import { SwitchVenueDialogComponent } from './switch-venue-dialog/switch-venue-d
     declarations: [
         AppComponent,
         InboxComponent,
+        SettingsComponent,
         LandingComponent,
         ResultComponent,
         ScanComponent,
