@@ -42,6 +42,10 @@ export class ResultComponent implements OnInit {
 
   exit() {
     this.visitHistory.isAuto = this.isAuto;
+    if (this.visitHistory.isAuto && !this.visitHistory.outTime) {
+      let inDate = new Date(this.visitHistory.inTime);
+      this.visitHistory.outTime = inDate.setHours(inDate.getHours() + this.autoHours);
+    }
     this._appService.updateVisitHistory(this.visitHistory).subscribe((_) => {
       this._router.navigate(['/landing']);
     });
