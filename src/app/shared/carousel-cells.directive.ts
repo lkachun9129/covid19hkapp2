@@ -2,7 +2,7 @@ import { AfterViewInit, Directive, ElementRef } from "@angular/core";
 
 const TRANSLATEX_REGEX = /translateX\(([-]?[0-9]+(\.[0-9]+)?)px\)/;
 
-const CARD_WIDTH = 315;
+const CARD_WIDTH = 335;
 const CARD_MARGIN = 5;
 const CARD_DIFFERENCE = CARD_WIDTH + CARD_MARGIN;
 const SCALE_DIFFERENCE = 0.1;
