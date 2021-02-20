@@ -1,4 +1,5 @@
 export interface AppRecord {
+    version?: number;
     histories: VisitHistory[];
 }
 
@@ -7,5 +8,6 @@ export interface VisitHistory {
     outTime: number;
     active: boolean;
     isAuto: boolean;
-    location: string;
+    locationEn: string;
+    locationZh: string;
 }

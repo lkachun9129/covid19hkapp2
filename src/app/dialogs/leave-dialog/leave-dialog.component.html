@@ -6,7 +6,7 @@
     </svg>
   </div>
   <div class="location-desc mx-3">You have entered the venue</div>
-  <div class="location-name mx-3">{{ visitHistory?.location }}</div>
+  <div class="location-name mx-3">{{ visitHistory?.locationEn ? visitHistory?.locationEn : visitHistory?.locationZh }}</div>
   <div class="enter-time mx-3">{{ visitHistory?.inTime | date: 'yyyy-MM-dd HH:mm' }}</div>
   <div class="question mx-4 flex-grow-1 d-flex align-items-center justify-content-center"><div class="">Are you leaving now?</div></div>
   <div class="auto-leave mx-3" *ngIf="data.isAuto">Auto-leave at {{ visitHistory?.outTime | date: 'MM-dd HH:mm' }}</div>

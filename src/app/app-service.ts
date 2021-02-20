@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { StorageMap } from "@ngx-pwa/local-storage";
 import { Observable } from "rxjs";
 import { AppRecord, VisitHistory } from "./models";
+import { StringUtility } from "./shared/string-utility";
 
 const RECORD_KEY = 'leavehomesafe.record';
 const AUTO_LEAVE_KEY = 'leavehomesafe.autoleave';
@@ -12,9 +13,35 @@ const DEFAULT_AUTO_HOURS = 4;
   providedIn: "root"
 })
 export class AppService {
-  private _locationName: string;
 
   constructor(private readonly _storage: StorageMap) { }
+
+  initAppRecord() {
+    this._storage.get(RECORD_KEY).subscribe((appRecord: AppRecord) => {
+      if (appRecord && appRecord.version === undefined) {
+        console.log('Version 1 AppRecord found');
+        console.log(JSON.stringify(appRecord));
+        // remove history without location name
+        // remove inactive history without leave time
+        let validHistories = appRecord.histories.filter((history: any) => {
+          if (!history.location || (!history.active && !history.outTime)) {
+            return false;
+          } else {
+            return true;
+          }
+        });
+        validHistories.forEach((history: any) => {
+          history.locationEn = history.location;
+          history.locationZh = null;
+          delete history.location;
+        });
+        appRecord.histories.length = 0;
+        appRecord.histories.push(...validHistories);
+        appRecord.version = 2;
+        this._storage.set(RECORD_KEY, appRecord).subscribe();
+      }
+    });
+  }
 
   setAutoLeaveOption(value: number) {
     this._storage.set(AUTO_LEAVE_KEY, value).subscribe();
@@ -30,9 +57,11 @@ export class AppService {
     return observable;
   }
 
-  enterVenue(name: string): Observable<any> {
+  enterVenue(locationEn: string, locationZh: string): Observable<any> {
+    locationZh = StringUtility.fromUTF8Array(StringUtility.toArray(locationZh))
     let history: VisitHistory = {
-      location: name,
+      locationEn: locationEn,
+      locationZh: locationZh,
       inTime: new Date().getTime(),
       outTime: null,
       active: true,
@@ -43,6 +72,7 @@ export class AppService {
       this._storage.get(RECORD_KEY).subscribe((appRecord: AppRecord) => {
         if (!appRecord) {
           appRecord = {
+            version: 2,
             histories: []
           }
         }

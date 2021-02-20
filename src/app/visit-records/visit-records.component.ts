@@ -17,14 +17,14 @@ export class VisitRecordsComponent implements OnInit {
   visitHistories: VisitHistory[] = [];
 
   constructor(
-    private readonly _dialog: MatDialog,
     private readonly _router: Router,
     private readonly _appService: AppService
   ) {}
 
   ngOnInit() {
     this._appService.getAllVisitHistory().subscribe((histories) => {
-      this.visitHistories.push(...histories);
+      let visitedHistories = histories.filter(history => history.active === false);
+      this.visitHistories.push(...visitedHistories);
     });
   }
 

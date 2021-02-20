@@ -1,5 +1,5 @@
-import { DOCUMENT } from "@angular/common";
-import { Component, Inject, VERSION } from "@angular/core";
+import { Component } from "@angular/core";
+import { AppService } from "./app-service";
 
 @Component({
   selector: "my-app",
@@ -7,20 +7,7 @@ import { Component, Inject, VERSION } from "@angular/core";
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
-  constructor(@Inject(DOCUMENT) private document: any) {
-    // let elem = this.document.documentElement;
-
-    // if (elem.requestFullscreen) {
-    //   elem.requestFullscreen();
-    // } else if (elem.mozRequestFullScreen) {
-    //   /* Firefox */
-    //   elem.mozRequestFullScreen();
-    // } else if (elem.webkitRequestFullscreen) {
-    //   /* Chrome, Safari and Opera */
-    //   elem.webkitRequestFullscreen();
-    // } else if (elem.msRequestFullscreen) {
-    //   /* IE/Edge */
-    //   elem.msRequestFullscreen();
-    // }
+  constructor(private readonly _appService: AppService) {
+    this._appService.initAppRecord();
   }
 }

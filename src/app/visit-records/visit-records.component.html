@@ -9,7 +9,7 @@
 		</div>
 		<div class="row records-container flex-grow-1 d-flex align-content-start">
 			<div class="record-item" *ngFor="let history of visitHistories">
-				<div class="location">{{history.location}}</div>
+				<div class="location">{{history.locationEn ? history.locationEn : history.locationZh}}</div>
 				<div class="period">{{history.inTime | date: 'yyyy-MM-dd HH:mm'}} - {{history.outTime | date: 'yyyy-MM-dd HH:mm'}}</div>
 			</div>			
 		</div>
