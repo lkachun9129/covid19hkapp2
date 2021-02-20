@@ -16,19 +16,35 @@ export class VisitRecordsComponent implements OnInit {
 
   visitHistories: VisitHistory[] = [];
 
+  pressCount = 0;
+
   constructor(
     private readonly _router: Router,
     private readonly _appService: AppService
   ) {}
 
   ngOnInit() {
-    this._appService.getAllVisitHistory().subscribe((histories) => {
-      let visitedHistories = histories.filter(history => history.active === false);
-      this.visitHistories.push(...visitedHistories);
-    });
+    this.loadHistories();
   }
 
   back() {
     this._router.navigate(['/settings']);
+  }
+
+  clear() {
+    this.pressCount++;
+    if (this.pressCount === 10) {
+      this._appService.clearHistories().subscribe((_) => {
+        this.loadHistories();
+      });
+    }
+  }
+
+  private loadHistories() {
+    this._appService.getAllVisitHistory().subscribe((histories) => {
+      let visitedHistories = histories.filter(history => history.active === false);
+      this.visitHistories.length = 0;
+      this.visitHistories.push(...visitedHistories);
+    });
   }
 }

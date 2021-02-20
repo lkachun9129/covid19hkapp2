@@ -24,7 +24,7 @@ export class AppService {
         // remove history without location name
         // remove inactive history without leave time
         let validHistories = appRecord.histories.filter((history: any) => {
-          if (!history.location || (!history.active && !history.outTime)) {
+          if (history.location === '\n' || (!history.active && !history.outTime)) {
             return false;
           } else {
             return true;
@@ -41,6 +41,18 @@ export class AppService {
         this._storage.set(RECORD_KEY, appRecord).subscribe();
       }
     });
+  }
+
+  clearHistories(): Observable<any> {
+    let observable = new Observable<number>((subscriber) => {
+      this._storage.get(RECORD_KEY).subscribe((appRecord: AppRecord) => {
+        appRecord.histories.length = 0;
+        this._storage.set(RECORD_KEY, appRecord).subscribe((_) => {
+          subscriber.next();
+        });
+      });
+    });
+    return observable;
   }
 
   setAutoLeaveOption(value: number) {

@@ -4,14 +4,14 @@
 			<svg viewBox="0 0 100 100" width="30" class="ml-3" (click)="back()">
 				<path d="M60 15 L30 50 L60 85" fill="none" stroke="white" stroke-width="10" />
 			</svg>
-			<div class="text-center flex-grow-1 m-auto">Visit Records</div>
+			<div class="text-center flex-grow-1 m-auto" (click)="clear()">Visit Records</div>
 			<svg viewBox="0 0 100 100" width="30" class="mr-3"></svg>
 		</div>
 		<div class="row records-container flex-grow-1 d-flex align-content-start">
 			<div class="record-item" *ngFor="let history of visitHistories">
 				<div class="location">{{history.locationEn ? history.locationEn : history.locationZh}}</div>
 				<div class="period">{{history.inTime | date: 'yyyy-MM-dd HH:mm'}} - {{history.outTime | date: 'yyyy-MM-dd HH:mm'}}</div>
-			</div>			
+			</div>
 		</div>
 	</div>
 	
