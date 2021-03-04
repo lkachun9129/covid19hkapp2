@@ -33,7 +33,7 @@ export class AutoLeaveDialogComponent {
         this.options.push({
             label: '+ 1 hour',
             value: 1,
-            selected: false
+            selected: 1 === data.autoHours
         });
 
         for (let idx = 2; idx <= 24; ++idx) {
@@ -55,14 +55,14 @@ export class AutoLeaveDialogComponent {
     }
 
     exit() {
-        this._dialogRef.close();
+        this._dialogRef.close(false);
     }
 
     confirm() {
         this.visitHistory.isAuto = true;
         this._appService.setAutoLeaveOption(this.data.autoHours);
         this._appService.updateVisitHistory(this.visitHistory).subscribe((_) => {
-            this._dialogRef.close();
+            this._dialogRef.close(true);
         });
     }
 }

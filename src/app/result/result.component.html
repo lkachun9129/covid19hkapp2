@@ -21,11 +21,11 @@
 			<div class="row justify-content-center align-items-end">
 				<div class="col-12">
 					<div class="row justify-content-center mb-3">
-						<ng-container *ngIf="!visitHistory?.outTime">
-							<mat-checkbox class="checkbox mr-5" [(ngModel)]="isAuto">Auto leave after {{autoHours}} <span *ngIf="autoHours > 1 else singleHour">hours</span><ng-template #singleHour>hour</ng-template></mat-checkbox>
+						<ng-container *ngIf="!isConfirmAuto">
+							<mat-checkbox class="checkbox mr-5" [(ngModel)]="isAuto" (change)="toggleAuto()">Auto leave after {{autoHours}} <span *ngIf="autoHours > 1 else singleHour">hours</span><ng-template #singleHour>hour</ng-template></mat-checkbox>
 							<div class="change-button" (click)="change()">Change</div>
 						</ng-container>
-						<mat-checkbox *ngIf="visitHistory?.outTime" class="checkbox" [(ngModel)]="isAuto">Auto leave at {{visitHistory?.outTime | date: 'MM-dd HH:mm'}}</mat-checkbox>
+						<mat-checkbox *ngIf="isConfirmAuto" class="checkbox" [(ngModel)]="isAuto" (change)="toggleAuto()">Auto leave at {{visitHistory?.outTime | date: 'MM-dd HH:mm'}}</mat-checkbox>
 					</div>
 				</div>
 				<div class="col-12">

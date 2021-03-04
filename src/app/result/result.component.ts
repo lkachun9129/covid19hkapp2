@@ -16,6 +16,7 @@ export class ResultComponent implements OnInit {
   locationName: string;
 
   isAuto: boolean = true;
+  isConfirmAuto: boolean = false;
   autoHours: number = 0;
 
   visitHistory: VisitHistory;
@@ -25,27 +26,34 @@ export class ResultComponent implements OnInit {
       private readonly _router: Router,
       private readonly _appService: AppService) {
 
-      this._appService.getAutoLeaveOption().subscribe((autoHours) => {
-        this.autoHours = autoHours;
-      });
+  }
+
+  private updateVisitHistory() {
+    this.visitHistory.isAuto = this.isAuto;
+    if (this.isAuto) {
+      let inDate = new Date(this.visitHistory.inTime);
+      this.visitHistory.outTime = inDate.setHours(inDate.getHours() + this.autoHours);
+    } else {
+      this.visitHistory.outTime = null;
+    }
+    this._appService.updateVisitHistory(this.visitHistory).subscribe();
   }
 
   ngOnInit() {
     this._appService.getLastVisitHistory().subscribe((history) => {
       this.visitHistory = history;
+      this._appService.getAutoLeaveOption().subscribe((autoHours) => {
+        this.autoHours = autoHours;
+        this.updateVisitHistory();
+      });
     });
   }
 
   toggleAuto() {
-    this.isAuto = !this.isAuto;
+    this.updateVisitHistory();
   }
 
   exit() {
-    this.visitHistory.isAuto = this.isAuto;
-    if (this.visitHistory.isAuto && !this.visitHistory.outTime) {
-      let inDate = new Date(this.visitHistory.inTime);
-      this.visitHistory.outTime = inDate.setHours(inDate.getHours() + this.autoHours);
-    }
     this._appService.updateVisitHistory(this.visitHistory).subscribe((_) => {
       this._router.navigate(['/landing']);
     });
@@ -57,7 +65,8 @@ export class ResultComponent implements OnInit {
       data: { autoHours: this.autoHours }
     });
 
-    autoLeaveDialog.afterClosed().subscribe(() => {
+    autoLeaveDialog.afterClosed().subscribe((isConfirmAuto: boolean) => {
+      this.isConfirmAuto = isConfirmAuto;
       this._appService.getLastVisitHistory().subscribe((history) => {
         this.visitHistory = history;
       });

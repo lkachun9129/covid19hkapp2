@@ -1,7 +1,7 @@
 .main-content {
     margin: 0 -10px;
     padding: 0 10px;
-    height: 65vh;
+    height: 100%;
 }
 
 .close-button {
@@ -16,7 +16,6 @@
 }
 
 .range-selector {
-    height: 200px;
     overflow: scroll;
     font-size: 1.2em;
 }
